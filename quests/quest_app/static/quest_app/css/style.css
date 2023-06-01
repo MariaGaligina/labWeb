@@ -1,0 +1,249 @@
+/*Обнуление*/
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	background-color: rgb(51, 51, 51);
+	font-family: rubik,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+	text-align: center;
+	color: rgb(255,255,255);
+	font-size: 16px;
+	line-height: 24px;
+}
+a {
+	color: rgb(255,255,255);
+}
+h1 {
+	font-size: 40px;
+	line-height: 1;
+	margin: 0px 0px 50px 0px;
+	font-weight: 500;
+}
+h2 {
+	font-size: 30px;
+	line-height: 1;
+	margin: 0px 0px 20px 0px;
+	font-weight: 300;
+}
+h3 {
+	font-size: 20px;
+	line-height: 1;
+	margin: 0px 0px 20px 0px;
+}
+ul {
+	list-style: none;
+}
+/* ================ */
+.wrapper {
+
+	min-height: 100vh;
+
+}
+/* ================ */
+.header {
+	width: 100%;
+	grid-area: header;
+	padding: 15px;
+	background-color: rgb(22,22,22) ;
+
+	justify-content: space-between;
+	position: fixed;
+	z-index: 20;
+	
+}
+
+.describe-content{
+	background-color: rgb(36, 36, 36);
+	padding: 100px 50px 40px;
+
+}
+
+.describe-content h3{
+
+	color: #b3b3b3;
+	font-size: 17px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px;
+	font-weight: 300;
+	line-height: 1.4;
+	margin-bottom: 22px;
+
+}
+
+/* ================ */
+
+.content{
+	padding: 30px 100px;
+}
+
+.content-items{
+	padding-bottom: 80px;
+}
+.quest-items {
+	display: grid;
+	gap: 40px 50px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	/* grid-auto-rows: 1fr; */
+}
+.quest-item {
+	position: relative;
+
+	
+	background-color: rgb(36, 36, 36) ;
+	border-radius: 10px;
+	overflow: hidden;
+	padding-bottom: 20px;
+}
+.quest-image {
+	position: relative;
+	padding: 0px 0px 65% 0px;
+	margin: 0px 0px 10px 0px;
+	background-color: rgb(0, 0, 0);
+}
+.quest-image img {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+.quest-image:hover img{
+	opacity: .25;
+}
+
+.quest-item .quest-description a{
+	position: absolute;
+	display:none;
+	text-decoration: none;
+}
+
+.quest-image:hover .a-desription{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: table;
+	padding: 20% 5%;
+	font-size: 14px;
+	line-height: 1.4;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+	color: #d9d9d9;
+	box-sizing: border-box;
+	z-index: 10;
+	text-decoration: none;
+}
+
+
+
+.quest-icons-info{
+	font-size: 20px;
+	font-weight: 500;
+	width: 100%;
+	z-index: 1;
+	position:absolute;
+	text-align: right;
+	padding: 5px 15px 0px 0px;
+}
+
+.count-people .icons-info{
+	width: 16px;
+	height: 16px;
+	margin: 0px 0px;
+	padding-top: 2px;
+}
+.quest-icons-info p{
+	color: rgb(255,255,255);
+}
+
+.item-button {
+	background-color: rgb(121, 79, 69);
+	position:static;
+	padding: 8px 20px;
+	color: #fff;
+	line-height: 40px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 12px;
+	text-decoration: none;
+	justify-self:center;
+	border-radius: 5px;
+}
+.item-button:hover{
+	background-color: rgb(78, 50, 43);
+	color:rgb(146, 144, 144)
+}
+
+.item-box-desc{
+    padding: 5px 0px 10px 0px;
+    color: #697580;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.quest_tile_name_link{
+	color:rgb(255,255,255);
+	text-decoration: none;
+	font-size: 20px;
+	font-weight: 500;
+}
+.quest_tile_name_link:hover{
+	color:rgb(146, 144, 144);
+}
+
+.game-type{
+	color: #098772;
+}
+
+.quest-icon{
+	margin: -3px 0px -3px 4px;
+	padding-right: 4px;
+	width: 16px;
+	height: auto;
+}
+
+/* ================*/
+.footer {
+	padding: 15px;
+	background-color: rgb(22,22,22) ;
+	grid-area: footer;
+	align-items: center;
+	display: grid;
+	grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+@media (min-width: 550px) {
+	.footer-copy {
+		grid-column: 2 / 3;
+	}
+	.footer-text {
+		grid-column: 3 / 4;
+		text-align: right;
+	}
+}
+@media (max-width: 550px) {
+	.footer {
+		grid-template: 1fr 1fr / 1fr;
+		justify-items: center;
+	}
+	.footer-copy {
+		order: 2;
+	}
+	.footer-text {
+		order: 1;
+	}
+}

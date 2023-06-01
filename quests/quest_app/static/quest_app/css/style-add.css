@@ -1,0 +1,256 @@
+*,
+*:before,
+*:after {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+html,
+body {
+	height: 100%;
+	background: rgba(51,51,51,1);
+	font-family: rubik,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,helvetica neue,Arial,noto sans,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol,noto color emoji;
+	text-align: center;
+	color: rgb(255,255,255);
+	font-size: 16px;
+	line-height: 24px;
+}
+a {
+	color: rgb(255,255,255);
+}
+h1 {
+	font-size: 40px;
+	line-height: 1;
+	margin: 0px 0px 20px 0px;
+	font-weight: 500;
+}
+h2 {
+	font-size: 30px;
+	line-height: 1;
+	margin: 0px 0px 20px 0px;
+	font-weight: 300;
+}
+h3 {
+	font-size: 30px;
+	line-height: 1;
+	margin: 0px 0px 10px 0px;
+}
+ul {
+	list-style: none;
+}
+/* ================ */
+.wrapper {
+	background: linear-gradient(to bottom, rgba(36,36,36,1) 8%,rgba(51,51,51,1) 41%,rgba(51,51,51,1) 61%,rgba(36,36,36,1) 93%);
+	display: grid;
+
+	grid-template: minmax(100px, auto) 1fr minmax(70px, auto) / 1fr;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
+}
+
+/* ================ */
+.header {
+	grid-area: header;
+	padding: 15px;
+	background-color: rgb(22,22,22) ;
+	height: 85px;
+	
+}
+.header-logo {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+	
+	
+
+}
+
+.logo{
+	margin-top: 8px;
+	margin-right: 10px;
+	width:40px;
+	height:40px;
+	display: flex;
+  object-fit:cover;
+	
+}
+/*
+.header-list {
+	display: grid;
+	grid-auto-flow: column;
+	justify-items: end;
+	justify-content: end;
+}*/
+
+.header-link {
+
+	display: block;
+	/*padding: 12px 24px;*/
+	color: white;
+	font-size: 20px;
+	font-weight: 600;
+	text-decoration: none;
+}
+.header-link:hover{
+	background-color: rgb(22,22,22);
+}
+
+
+
+.describe-content{
+
+	/*background-color: rgb(36, 36, 36);*/
+	padding: 25px 10px;
+
+}
+
+.describe-content h3{
+
+	color: #b3b3b3;
+	font-size: 17px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 800px;
+	font-weight: 300;
+	line-height: 1.4;
+
+}
+
+.description-box{
+	background-color: unset;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  border-collapse: separate;
+  list-style-type: none;
+  margin-top:30px;
+	display: flex;
+
+  justify-content: center;
+}
+
+.cell {
+	border: solid 1px #b3b3b3;
+  padding: 5px 15px;
+	
+}
+
+
+.description {
+  font-size: 16px;
+	margin-top: 50px;
+}
+
+.description p{
+  text-align: left;
+  margin: 10px 15% 10px 15%;
+  
+}
+.description-images {
+	margin: auto;
+	width: 50%;
+	height: 400px;
+	align-self: center;
+	justify-self: center;
+
+	object-fit:scale-down;
+	overflow: hidden;
+	
+}
+
+.description-images img{
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	align-self: center;
+	justify-self: center;
+
+	object-fit:scale-down;
+	overflow: hidden;
+	
+	
+	
+}
+
+.description-images .no_img{
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	align-self: center;
+	justify-self: center;
+
+	object-fit:scale-down;
+	overflow: hidden;
+	
+	
+	
+}
+
+.slyde-show
+{
+	margin: auto;
+
+	background-repeat: no-repeat;
+	z-index: 120;
+  /*height:100vh;*/
+  animation: clr 5s infinite;
+}
+@keyframes clr 
+{
+  0%  {background-image: url('https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880');}
+  60%  {background-image: url('https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo1.jpg?1670407878') ;}
+	100%  {background-image: url('https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo2.jpg?1643766371');}
+
+}
+
+.description h2{
+  text-align: center;
+  margin: 15px 10px 10px 0;
+}
+
+.price {
+  padding-bottom: 30px;
+}
+
+.price p{
+  margin: 10px 15% 10px 15%;
+  text-align: left;
+}
+
+.price h2{
+  text-align: center;
+  margin: 15px 0 10px 0;
+}
+
+.footer {
+	padding: 15px;
+	background-color: rgb(22,22,22) ;
+	grid-area: footer;
+	align-items: center;
+	display: grid;
+	grid-template: 1fr / 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+}
+
+@media (min-width: 550px) {
+	.footer-copy {
+		grid-column: 2 / 3;
+	}
+	.footer-text {
+		grid-column: 3 / 4;
+		text-align: right;
+	}
+}
+@media (max-width: 550px) {
+	.footer {
+		grid-template: 1fr 1fr / 1fr;
+		justify-items: center;
+	}
+	.footer-copy {
+		order: 2;
+	}
+	.footer-text {
+		order: 1;
+	}
+}

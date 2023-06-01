@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>API</title>
+		<link rel="stylesheet" href="{%static 'quest_app/css/auth.css' %}" />
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<h1>Регистрация</h1>
+				<form id="tg">
+					<div class="form-group">
+						<label class="form-label">Имя</label>
+						<input type="text" name="name" class="form-control name" />
+					</div>
+					<div class="form-group">
+						<label class="form-label">Email</label>
+						<input type="text" name="email" class="form-control email" />
+					</div>
+					<div class="form-group">
+						<label class="form-label">Пароль</label>
+						<input type="password" name="password" class="form-control password" />
+					</div>
+					<div id="success" class="alert-success" role="alert"></div>
+					<button type="submit" class="btn">Отправить</button>
+				</form>
+			</div>
+			<footer class="footer">
+				<div class="footer-copy" id="contats">Contacts 2023</div>
+				<div class="footer-text">Права защищены</div>
+			</footer>
+		</div>
+		<script src="{% static 'https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js' %}"></script>
+		<script src="{% static 'https://unpkg.com/axios@1.1.2/dist/axios.min.js' %}"></script>
+		<script src="{% static 'quest_app/js/auth.js' %}"></script>
+	</body>
+</html>
