@@ -1,4 +1,3 @@
-import axios from 'axios'
 const token = '6157565081:AAFSoh7I5PqlU9KVRUBOSZTKtNB180yJTc4',
 	chatID = '-1001975703464',
 	urlAPI = `https://api.telegram.org/bot${token}/sendMessage`,
