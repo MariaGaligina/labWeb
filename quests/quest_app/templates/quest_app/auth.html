@@ -15,21 +15,30 @@
 				<h1>Регистрация</h1>
 				<div class="form-box">
 					<div class="form-value" id="#formid">
-						<form class="form" id="'tg" method="POST" action="">
-							<h2>Sign up</h2>
-							{% csrf_token %} {{form.username.label}} {{form.username}} {{form.email.label}}
-							{{form.email}} {{form.password1.label}} {{form.password1}} {{form.password2.label}}
-							{{form.password2}}
-							<input type="submit" name="Create User" />
+						<form class="form" id="tg" method="POST" action="">
+							{% csrf_token %}
+							<div class="form-control">
+								<div class="label">{{form.username.label}}</div>
+								<div class="input">{{form.username}}</div>
+							</div>
+							<div class="form-control">
+								<div class="label">{{form.email.label}}</div>
+								<div class="input">{{form.email}}</div>
+							</div>
+							<div class="form-control">
+								<div class="label">{{form.password1.label}}</div>
+								<div class="input">{{form.password1}}</div>
+							</div>
+							<div class="form-control">
+								<div class="label">{{form.password2.label}}</div>
+								<div class="input">{{form.password2}}</div>
+							</div>
+							<input type="submit" name="Create User" class="btn" />
 							{% comment %} <button class="log-in" type="submit">Sign up</button> {% endcomment %}
 						</form>
 					</div>
 				</div>
 			</div>
-			<footer class="footer">
-				<div class="footer-copy" id="contats">Contacts 2023</div>
-				<div class="footer-text">Права защищены</div>
-			</footer>
 		</div>
 		<script src="{% static 'quest_app/js/lib/axios.min.js' %}"></script>
 		<!--<script src="{% static 'quest_app/js/auth.js' %}"></script>-->
