@@ -4,7 +4,8 @@
 {%block content%}
 			<main class="main">
 				<div class="describe-content">
-					<h3>{{type_quest}}</h3>
+					<h1>{{quest.title}}</h1>
+					<h3>{{quest.type_quest}}</h3>
 				</div>
 				<div class="description-images">
 					<img src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880">
@@ -12,15 +13,15 @@
 				<div class="description-box">
 					<div class="cell">
 						<p class="th">Игроков</p>
-						<p class="td">{{count_members}}</p>
+						<p class="td">{{quest.count_members}}</p>
 					</div>
 					<div class="cell">
-						<p class="th">Время, мин</p>
+						<p class="th">Время</p>
 					  <p class="td">{{quest.time}} мин</p>
 					</div>
 					<div class="cell">
 						<p class="th">Цена, р.</p>
-						<p class="td">{{quest.cost}}</p>
+						<p class="td">{{quest.cost}} р.</p>
 					</div>
 					<div class="cell">
 						<p class="th">Возраст</p>
@@ -29,13 +30,13 @@
 				</div>
 				<div class="description">
 					<h2>Описание</h2>
-					<p>{{full_description}}</p>
+					<p>{{quest.full_description}}</p>
 					<p><b>Возрастные ограничения</b>: {{quest.age_limit}}</p>
 				</div>
 				<div class="price">
 					<h2>Цены</h2>
 					<p>Стоимость игры для команды – от {{quest.cost}} рублей. Требуется частичная предоплата на все сеансы</p>
-					<p><b>{{addition}}</b></p>
+					<p><b>{{quest.addition}}</b></p>
 				</div>
 			</main>
 						

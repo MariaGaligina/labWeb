@@ -1,7 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.contrib import messages
+
+from .forms import CreateUserForm
 
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
+
+# from .forms import CreateUserForm
 
 # Create your views here.
 
@@ -12,7 +18,7 @@ def index_page(request):
 
 
 def quest0(request):
-    quest = Quest.objects.filter(id=1)
+    quest = Quest.objects.get(pk=1)
     return render(
         request, "quest_app/quest0.html", {"quest": quest, "title": "Алхимик"}
     )
@@ -38,5 +44,23 @@ def questZel2(request):
     return render(request, "quest_app/questZel2.html")
 
 
+"""
 def auth(request):
-    return render(request, "quest_app/auth.html")
+    form = CreateUserForm()
+    return render(request, "quest_app/auth.html", {"form": form})
+"""
+
+
+def auth(request):
+    form = CreateUserForm()
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request, "Account was created: ", form.cleaned_data.get("username")
+            )
+            return redirect("/quest0")
+    # return render(request, "quest_app/auth.html")
+
+    return render(request, "quest_app/auth.html", {"form": form})
