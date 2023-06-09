@@ -17,19 +17,19 @@ def index_page(request):
     return render(request, "quest_app/index.html", {"all_quests": all_quests})
 
 
-def quest0(request):
-    quest = Quest.objects.get(pk=1)
-    return render(
-        request, "quest_app/quest0.html", {"quest": quest, "title": "Алхимик"}
-    )
-
-
 def quest1(request):
-    return render(request, "quest_app/quest1.html")
+    quest = Quest.objects.get(pk=1)
+    return render(request, "quest_app/quest1.html", {"quest": quest})
 
 
 def quest2(request):
-    return render(request, "quest_app/quest2.html")
+    quest = Quest.objects.get(pk=2)
+    return render(request, "quest_app/quest2.html", {"quest": quest})
+
+
+def quest3(request):
+    quest = Quest.objects.get(pk=3)
+    return render(request, "quest_app/quest3.html", {"quest": quest})
 
 
 def questZel0(request):

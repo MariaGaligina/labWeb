@@ -1,68 +1,44 @@
+{% extends 'quest_app/base.html' %}
 {% load static %}
 
-<!DOCTYPE HTML>
-<html lang = "ru">
-  <head>
-      <title>Особняк с привидениями</title>
-      <link rel="stylesheet" href="{% static 'quest_app/css/style-add.css' %}">
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge",chrome="1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <div class="wrapper">
-			<header class="header">
-				<div class="header-logo">
-					<div class="logo">
-						<img src="https://cdn-icons-png.flaticon.com/128/619/619700.png">
-					</div>
-				</div>	
-							
-			</header>
-			
+{%block content%}
 			<main class="main">
 				<div class="describe-content">
-					<h1>Особняк с привидениями</h1>
-					<h3>Квест</h3>
+					<h1>{{quest.title}}</h1>
+					<h3>{{quest.type_quest}}</h3>
 				</div>
 				<div class="description-images">
-					<img src="https://mir-kvestov.ru/uploads/quests/838/large/kvest_kom_osobnyak_s_privideniyami_photo2.jpg?1643753748" alt = "404">
+					<img src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880">
 				</div>
 				<div class="description-box">
 					<div class="cell">
 						<p class="th">Игроков</p>
-						<p class="td">1–5</p>
+						<p class="td">{{quest.count_members}}</p>
 					</div>
 					<div class="cell">
 						<p class="th">Время</p>
-					  <p class="td">60 мин</p>
+					  <p class="td">{{quest.time}} мин</p>
 					</div>
 					<div class="cell">
-						<p class="th">Цена</p>
-						<p class="td">от 3000 р.</p>
+						<p class="th">Цена, р.</p>
+						<p class="td">{{quest.cost}} р.</p>
 					</div>
 					<div class="cell">
 						<p class="th">Возраст</p>
-						<p class="td">12+</p>
+						<p class="td">{{quest.age_limit}}</p>
 					</div>
 				</div>
 				<div class="description">
 					<h2>Описание</h2>
-					<p>Какие тайны спрятаны за дверями загадочного особняка, окруженного стеной мрачного леса? Владелец особняка давно умер, а имя его забыто. С тех пор жизнь и время в этом месте будто остановились. Но отчего-то не отпускает ощущение, что некто или нечто до сих пор не покинули его безмолвные стены.</p>
-					<p>Каждый вечер в одно и то же время в окнах особняка загорается свет, а ночью по окрестностям разносятся жуткие звуки. На любые вопросы местные лишь пугливо отмалчиваются или рассказывают что-то о смельчаках, которые рискнули переступить порог дома. Каждому из них пришлось заплатить свою цену за возвращение в наш мир: одни оставили в нем свое тело, другие – разум...</p>
-          <p>Удастся ли вам проникнуть в особняк, чтобы найти утерянное с годами имя его владельца? Хватит ли смелости дойти до конца и навсегда развеять мифы о проклятом месте? А может, все они окажутся кошмарной правдой?</p>
-					<p><b>Возрастные ограничения</b>: 12+</p>
+					<p>{{quest.full_description}}</p>
+					<p><b>Возрастные ограничения</b>: {{quest.age_limit}}</p>
 				</div>
 				<div class="price">
 					<h2>Цены</h2>
-					<p>Стоимость игры для команды от 1 до 5 человек – от 3000 до 7300 рублей. Требуется частичная предоплата на все сеансы</p>
-					<p><b>Мы не берём комиссию</b></p>
+					<p>Стоимость игры для команды – от {{quest.cost}} рублей. Требуется частичная предоплата на все сеансы</p>
+					<p><b>{{quest.addition}}</b></p>
 				</div>
 			</main>
-			<footer class="footer">
-				<div class="footer-copy" id="contats">Contacts 2023</div>
-				<div class="footer-text">Права защищены</div>
-			</footer>				
+						
     </div>
-  </body>
-</html>
+		{% endblock %}

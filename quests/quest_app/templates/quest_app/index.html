@@ -84,7 +84,7 @@
 										src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880"
 										alt="img not found" />
 									<div class="quest-description">
-										<a href="quest0" class="a-desription"
+										<a href="quest{{q.pk}}" class="a-desription"
 											>{{q.short_description}}</a
 										>
 									</div>
@@ -122,22 +122,8 @@
 							{% endfor %}
 						</div>
 					</section>
-					
-
-					<section class="content-items" id="intoZel">
-						<h2 class="items-title">Квесты в Зеленограде:</h2>
-						<div class="quest-items" id="questZelenograd"></div>
-					</section>
-				</section>
-				<div class="aimation-css">
-					<div class="stage">
-						<div class="box bounce-2"></div>
-					</div>
-				</div>
-			</main>
 			
 		</div>
-		<script src="{%static 'quest_app/js/index.js' %}"></script>
 		<script src="{%static 'quest_app/js/burgerMenuScript.js' %}"></script>
 		{%endblock%}
 	</body>
