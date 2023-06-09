@@ -4,7 +4,7 @@
 {%block content%}
 			<main class="main">
 				<div class="describe-content">
-					<h3>Квест-Перформанс</h3>
+					<h3>{{type_quest}}</h3>
 				</div>
 				<div class="description-images">
 					<img src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880">
@@ -12,31 +12,30 @@
 				<div class="description-box">
 					<div class="cell">
 						<p class="th">Игроков</p>
-						<p class="td">1–6</p>
+						<p class="td">{{count_members}}</p>
 					</div>
 					<div class="cell">
-						<p class="th">Время</p>
-					  <p class="td">75 мин</p>
+						<p class="th">Время, мин</p>
+					  <p class="td">{{quest.time}} мин</p>
 					</div>
 					<div class="cell">
-						<p class="th">Цена</p>
-						<p class="td">от 4500 р.</p>
+						<p class="th">Цена, р.</p>
+						<p class="td">{{quest.cost}}</p>
 					</div>
 					<div class="cell">
 						<p class="th">Возраст</p>
-						<p class="td">16+</p>
+						<p class="td">{{quest.age_limit}}</p>
 					</div>
 				</div>
 				<div class="description">
 					<h2>Описание</h2>
-					<p>Любая наука требует жертв, а из всех существующих наук, алхимия – самая ненасытная. В попытках разрушить рамки физических превращений, великий алхимик Элиас Эшмол и его жена бесследно пропали. Таинственное исчезновение стало ударом для жителей небольшого городка и огромной загадкой для всех почитателей оккультизма.</p>
-					<p>Вы – адепты общества, в котором состоял ученый. И хотя опыта в алхимии у вас совсем мало, именно вам предстоит узнать, что на самом деле произошло с семьей Элиаса Эшмола. Соберитесь с духом и прислушивайтесь к голосу разума, чтобы раскрыть эту тайну!</p>
-					<p><b>Возрастные ограничения</b>: 16+</p>
+					<p>{{full_description}}</p>
+					<p><b>Возрастные ограничения</b>: {{quest.age_limit}}</p>
 				</div>
 				<div class="price">
 					<h2>Цены</h2>
-					<p>Стоимость игры для команды от 1 до 6 человек – от 4500 до 8800 рублей. Требуется частичная предоплата на все сеансы</p>
-					<p><b>Мы не берём комиссию</b></p>
+					<p>Стоимость игры для команды – от {{quest.cost}} рублей. Требуется частичная предоплата на все сеансы</p>
+					<p><b>{{addition}}</b></p>
 				</div>
 			</main>
 						

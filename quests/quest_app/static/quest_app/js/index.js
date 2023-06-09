@@ -221,6 +221,7 @@ class questInfoFromServer {
 		)
 	}
 }
+/*
 
 const quest0 = new questInfoFromServer(
 	'Алхимик',
@@ -331,3 +332,4 @@ questArrays.forEach((element) => allQuestsNearZelBlock.append(createFullQuestNod
 const allQuestsIntoZelBlock = doc.querySelector('#questZelenograd')
 
 zelQuestArrays.forEach((element) => allQuestsIntoZelBlock.append(createFullQuestNode(element)))
+*/

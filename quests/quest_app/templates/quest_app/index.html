@@ -5,7 +5,7 @@
 <html lang="ru">
 	<head>
 		<!-- Заголовок страницы в браузере -->
-		<title>Квесты</title>
+		<title>{{title}}</title>
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="{%static 'quest_app/css/style.css' %}" />
 		<!-- Кодировка страницы -->
@@ -18,36 +18,12 @@
 	</head>
 	<!-- Отображаемое тело страницы -->
 	<body>
+		{% block content%}
 		<!-- Оболочка (grid-контейнер) -->
 		<div class="wrapper">
 			<!-- Шапка (grid - элемент) -->
 
-			<header class="header">
-				<div class="container">
-					<div class="navbar__wrap">
-						<div class="hamb">
-							<div class="hamb__field" id="hamb">
-								<span class="bar"></span>
-								<span class="bar"></span>
-								<span class="bar"></span>
-							</div>
-						</div>
-						<div class="logo">
-							<img src="https://cdn-icons-png.flaticon.com/128/619/619700.png" />
-						</div>
 
-						<ul class="menu" id="menu">
-							<li><a href="auth">Регистрация</a></li>
-							<li><a href="#main-page">Главная</a></li>
-							<li><a href="#nearZel">Рядом с Зеленоградом</a></li>
-							<li><a href="#intoZel">В Зеленограде</a></li>
-
-							<li><a href="#contats">Контакты</a></li>
-						</ul>
-					</div>
-				</div>
-			</header>
-			<div class="popup" id="popup"></div>
 			<!-- Контент (grid-элемент + grid-контейнер) -->
 			<main class="main" id="main-page">
 				<div class="describe-content">
@@ -60,11 +36,68 @@
 				</div>
 
 				<!-- Контент (grid-элемент) -->
+				
 				<section class="content">
 					<section class="content-items" id="nearZel">
 						<h2 class="items-title">Квесты рядом с Зеленоградом:</h2>
-						<div class="quest-items" id="questNearZelenograd"></div>
+						<div class="quest-items" id="questNearZelenograd">
+
+							{% for q in all_quests%}
+							<div class="quest-item">
+								<div class="quest-icons-info">
+									<p class="age-limit">{{q.age_limit}}</p>
+									<p class="count-people">
+										<img
+											class="icons-info"
+											src="https://www.clipartmax.com/png/full/9-96044_big-image-icon-person-png-white.png"
+											alt="icon not found" />
+										<span>{{q.counf_members}}</span>
+									</p>
+								</div>
+								<div class="quest-image">
+									<img
+										src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880"
+										alt="img not found" />
+									<div class="quest-description">
+										<a href="quest0" class="a-desription"
+											>{{q.short_description}}</a
+										>
+									</div>
+								</div>
+								<div class="item-box-desc">
+									<p>
+										<a
+											target="_blanck"
+											title="Квест «"{{q.title}}"» "
+											href="https://mir-kvestov.ru/quests/wizardium-magicheskoe-podzemelie"
+											class="quest_tile_name_link"
+											>{{q.title}}</a
+										>
+									</p>
+									<span>
+										<img
+											class="quest-icon"
+											alt="icon not found!"
+											src="https://cdn.icon-icons.com/icons2/1703/PNG/96/ghost_112194.png" />
+									</span>
+									<span class="game-type">{{q.type_quest}}</span>
+									<p>{{q.city}}</p>
+									<p>{{q.subway}}</p>
+									<p>Рейтинг по отзывам: </p>
+								</div>
+								<a
+									class="item-button"
+									target="_blank"
+									title="Бронировать «"{{q.title}}"»"
+									data-scroll=""
+									href="quest0"
+									>Бронировать</a
+								>
+							</div>
+							{% endfor %}
+						</div>
 					</section>
+					
 
 					<section class="content-items" id="intoZel">
 						<h2 class="items-title">Квесты в Зеленограде:</h2>
@@ -77,12 +110,10 @@
 					</div>
 				</div>
 			</main>
-			<footer class="footer">
-				<div class="footer-copy" id="contats">Contacts 2023</div>
-				<div class="footer-text">Права защищены</div>
-			</footer>
+			
 		</div>
 		<script src="{%static 'quest_app/js/index.js' %}"></script>
 		<script src="{%static 'quest_app/js/burgerMenuScript.js' %}"></script>
+		{%endblock%}
 	</body>
 </html>
