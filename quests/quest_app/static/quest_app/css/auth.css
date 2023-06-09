@@ -34,20 +34,10 @@ h1 {
 	flex-direction: column;
 }
 
-.form-group {
-	margin: 20px;
+.form-control {
 	display: flex;
 	height: 40px;
-	width: 300px;
-}
-.form-group .form-label {
-	display: block;
-	width: 100px;
-	background-color: grey;
-	padding: 7px;
-}
-.form-group .form-control {
-	width: 200px;
+	width: 600px;
 }
 
 .btn {
@@ -68,36 +58,4 @@ h1 {
 	margin-bottom: 25px;
 	background-color: aquamarine;
 	border-radius: 10px;
-}
-
-.footer {
-	margin-top: 170px;
-	padding: 15px;
-	background-color: rgb(22, 22, 22);
-	grid-area: footer;
-	align-items: center;
-	display: grid;
-	grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
-}
-
-@media (min-width: 550px) {
-	.footer-copy {
-		grid-column: 2/3;
-	}
-	.footer-text {
-		grid-column: 3/4;
-		text-align: right;
-	}
-}
-@media (max-width: 550px) {
-	.footer {
-		grid-template: 1fr 1fr/1fr;
-		justify-items: center;
-	}
-	.footer-copy {
-		order: 2;
-	}
-	.footer-text {
-		order: 1;
-	}
 }
