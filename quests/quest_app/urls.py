@@ -11,4 +11,5 @@ urlpatterns = [
     path("questZel1", views.questZel1),
     path("questZel2", views.questZel2),
     path("auth", views.auth),
+    path("liked/", views.like_unlike_post, name="like-post-view"),
 ]

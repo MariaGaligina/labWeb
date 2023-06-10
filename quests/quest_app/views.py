@@ -24,7 +24,8 @@ def quest1(request):
 
 def quest2(request):
     quest = Quest.objects.get(pk=2)
-    return render(request, "quest_app/quest2.html", {"quest": quest})
+    user = request.user
+    return render(request, "quest_app/quest2.html", {"quest": quest, "user": user})
 
 
 def quest3(request):
@@ -60,7 +61,35 @@ def auth(request):
             messages.success(
                 request, "Account was created: ", form.cleaned_data.get("username")
             )
-            return redirect("/quest0")
+            return redirect("/")
     # return render(request, "quest_app/auth.html")
 
     return render(request, "quest_app/auth.html", {"form": form})
+
+
+def like_unlike_post(request):
+    user = request.user
+    if request.method == "POST":
+        post_id = request.POST.get("post_id")
+        post_obj = Quest.objects.get(id=post_id)
+
+        if user in post_obj.likes.all():
+            post_obj.likes.remove(user)
+        else:
+            post_obj.likes.add(user)
+
+        like, created = Like.objects.get_or_create(user=user, post_id=post_id)
+
+        if not created:
+            if like.value == "Like":
+                like.value = "Unlike"
+
+            else:
+                like.value = "Like"
+        else:
+            like.value = "Like"
+
+            post_obj.save()
+            like.save()
+
+    return redirect("/")  # "/quest2"

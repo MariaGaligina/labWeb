@@ -9,6 +9,7 @@
 		<title>{{title}}</title>
 		<link rel="stylesheet" href="{% static 'quest_app/css/style-add.css' %}" />
 		<link rel="stylesheet" href="{% static 'quest_app/css/burgerMenuStyle.css' %}" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
 		<div class="wrapper">
@@ -44,7 +45,25 @@
 					<h1>{{title}}</h1>
 				</div>
 				{% block content %} {% endblock content %}
+
+				<div class="row">
+					<form
+						action="{%url 'like-post-view'%}"
+						method="POST"
+						,
+						class="like-form"
+						,
+						id="{{quest.id}}">
+						{% csrf_token %}
+						<input type="hidden" name="post_id" value="{{quest.id}}" />
+						<button type="submit" class="ui button like-btn{{quest.id}}">
+							{% if user not in quest.likes.all %} Like {% else %} Unlike {% endif %}
+						</button>
+						<div class="like-count{{quest.id}}">{{quest.num_likes}}</div>
+					</form>
+				</div>
 			</main>
+
 			<footer class="footer">
 				<div class="footer-copy" id="contats">Contacts 2023</div>
 				<div class="footer-text">Права защищены</div>
@@ -52,4 +71,49 @@
 		</div>
 		<script src="{%static 'quest_app/js/burgerMenuScript.js' %}"></script>
 	</body>
+	{%block scripts %}
+	<script>
+		$( document ).ready(function() {
+
+		    $('.like-form').submit(function(e){
+		        e.preventDefault()
+
+		        const post_id = $(this).attr('id')
+
+		        const likeText = $(.like-btn${post_id}).text()
+		        const trim = $.trim(likeText)
+
+		        const url = $(this).attr('action')
+
+		        let res;
+		        const likes = $(.like-count${post_id}).text()
+		        const trimCount = parseInt(likes)
+
+		        $.ajax({
+		            type: 'POST',
+		            url: url,
+		            data: {
+		                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+		                'post_id':post_id,
+		            },
+		            success: function(response) {
+		                if(trim === 'Unlike') {
+		                    $(.like-btn${post_id}).text('Like')
+		                    res = trimCount - 1
+		                } else {
+		                    $(.like-btn${post_id}).text('Unlike')
+		                    res = trimCount + 1
+		                }
+
+		                $(.like-count${post_id}).text(res)
+		            },
+		            error: function(response) {
+		                console.log('error', response)
+		            }
+		        })
+		    })
+
+		});
+	</script>
+	{%endblock scripts%}
 </html>
