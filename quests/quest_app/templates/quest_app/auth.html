@@ -16,22 +16,17 @@
 				<div class="form-box">
 					<div class="form-value" id="#formid">
 						<form class="form" id="'tg" method="POST" action="">
-							<h2>Sign up</h2>
 							{% csrf_token %} {{form.username.label}} {{form.username}} {{form.email.label}}
 							{{form.email}} {{form.password1.label}} {{form.password1}} {{form.password2.label}}
 							{{form.password2}}
-							<input type="submit" name="Create User" />
+							<input class="btn" type="submit" name="Create User" />
 							{% comment %} <button class="log-in" type="submit">Sign up</button> {% endcomment %}
 						</form>
 					</div>
 				</div>
 			</div>
-			<footer class="footer">
-				<div class="footer-copy" id="contats">Contacts 2023</div>
-				<div class="footer-text">Права защищены</div>
-			</footer>
 		</div>
 		<script src="{% static 'quest_app/js/lib/axios.min.js' %}"></script>
-		<!--<script src="{% static 'quest_app/js/auth.js' %}"></script>-->
+		<script src="{% static 'quest_app/js/auth.js' %}"></script>
 	</body>
 </html>
