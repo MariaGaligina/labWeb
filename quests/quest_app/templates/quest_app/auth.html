@@ -12,14 +12,20 @@
 	<body>
 		<div class="wrapper">
 			<div class="container">
-				<h1>Registration</h1>
+				<h1>Регистрация</h1>
 				<div class="form-box">
 					<div class="form-value" id="#formid">
 						<form class="form" id="'tg" method="POST" action="">
-							{% csrf_token %} {{form.username.label}} {{form.username}} {{form.email.label}}
-							{{form.email}} {{form.password1.label}} {{form.password1}} {{form.password2.label}}
+							{% csrf_token %}
+							<div>Пользователь</div>
+							{{form.username}}
+							<div>Email</div>
+							{{form.email}}
+							<div>Пароль</div>
+							{{form.password1}}
+							<div>Подтвердите пароль</div>
 							{{form.password2}}
-							<input class="btn" type="submit" name="Create User" />
+							<input class="btn" id="id-btn" type="submit" name="Create User" />
 							{% comment %} <button class="log-in" type="submit">Sign up</button> {% endcomment %}
 						</form>
 					</div>
