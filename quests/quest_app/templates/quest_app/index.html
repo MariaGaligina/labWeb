@@ -5,7 +5,7 @@
 <html lang="ru">
 	<head>
 		<!-- Заголовок страницы в браузере -->
-		<title>{{title}}</title>
+		<title>Квесты</title>
 		<!-- Подключаем CSS -->
 		<link rel="stylesheet" href="{%static 'quest_app/css/style.css' %}" />
 		<!-- Кодировка страницы -->
@@ -39,9 +39,7 @@
 						<ul class="menu" id="menu">
 							<li><a href="auth">Регистрация</a></li>
 							<li><a href="#main-page">Главная</a></li>
-							<li><a href="#nearZel">Рядом с Зеленоградом</a></li>
-							<li><a href="#intoZel">В Зеленограде</a></li>
-
+							<li><a href="#nearZel">Квесты</a></li>
 							<li><a href="#contats">Контакты</a></li>
 						</ul>
 					</div>
@@ -81,7 +79,7 @@
 								</div>
 								<div class="quest-image">
 									<img
-										src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880"
+										src="static/quest_app/splashscreens/quest{{q.pk}}img.jpg"
 										alt="img not found" />
 									<div class="quest-description">
 										<a href="quest{{q.pk}}" class="a-desription"
@@ -115,7 +113,7 @@
 									target="_blank"
 									title="Бронировать «"{{q.title}}"»"
 									data-scroll=""
-									href="quest0"
+									href="quest{{q.pk}}"
 									>Бронировать</a
 								>
 							</div>
@@ -124,6 +122,10 @@
 					</section>
 			
 		</div>
+		<footer class="footer">
+			<div class="footer-copy" id="contats">Contacts 2023</div>
+			<div class="footer-text">Права защищены</div>
+		</footer>
 		<script src="{%static 'quest_app/js/burgerMenuScript.js' %}"></script>
 		{%endblock%}
 	</body>

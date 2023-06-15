@@ -92,4 +92,4 @@ def like_unlike_post(request):
             post_obj.save()
             like.save()
 
-    return redirect("/")  # "/quest2"
+    return redirect("/quest2")  # "/quest2"

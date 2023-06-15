@@ -7,7 +7,7 @@ class Quest(models.Model):
     short_description = models.TextField(blank=True)
     full_description = models.TextField(blank=True)
     count_members = models.CharField(max_length=7)
-    splashsqreen = models.ImageField(upload_to="splashscreens/")
+    splashscreen = models.ImageField(upload_to="splashscreens/")
     icon_people = models.ImageField(upload_to="icon/people/")
     icon_type_quest = models.ImageField(upload_to="icon/type_quest/")
     type_quest = models.CharField(max_length=30)

@@ -8,7 +8,7 @@
 					<h3>{{quest.type_quest}}</h3>
 				</div>
 				<div class="description-images">
-					<img src="https://mir-kvestov.ru/uploads/quests/4033/large/claustrorhobiacom_alhimik_photo3.jpg?1670407880">
+					<img src="static/quest_app/splashscreens/quest{{quest.pk}}img.jpg">
 				</div>
 				<div class="description-box">
 					<div class="cell">
@@ -38,9 +38,80 @@
 					<p>Стоимость игры для команды – от {{quest.cost}} рублей. Требуется частичная предоплата на все сеансы</p>
 					<p><b>{{quest.addition}}</b></p>
 
+					<div class="row">
+						<form
+							action="{%url 'like-post-view'%}"
+							method="POST"
+							,
+							class="like-form"
+							,
+							id="{{quest.id}}">
+							{% csrf_token %}
+							<input type="hidden" name="post_id" value="{{quest.id}}" />
+							<button type="submit" class="ui button like-btn{{quest.id}}">
+								{% if user not in quest.likes.all %} Like {% else %} Unlike {% endif %}
+							</button>
+							<div class="like-count{{quest.id}}">{{quest.num_likes}}</div>
+						</form>
+					</div>
+
 				</div>
 			</main>
 			
 						
     </div>
+
+		<script>
+		
+		
+
+		$( document ).ready(function() {
+
+
+		    $('.like-form').submit(function(e){
+														
+
+		        e.preventDefault()
+
+
+		        const post_id = $(this).attr('id')
+						alert(post_id)
+						const likeText = $("like-count" + post_id).text()
+		       
+		        const trim = $.trim(likeText)
+
+		        const url = $(this).attr('action')
+
+		        let res;
+						const likes = $("like-count" + post_id).text()
+		        const trimCount = parseInt(likes)
+
+		        $.ajax({
+		            type: 'POST',
+		            url: url,
+		            data: {
+		                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+		                'post_id':post_id,
+		            },
+		            success: function(response) {
+		                if(trim === 'Unlike') {
+		                    $("like-btn" + post_id).text('Like')
+		                    res = trimCount - 1
+		                } else {
+		                    $("like-btn" + post_id).text('Unlike')
+		                    res = trimCount + 1
+		                }
+
+		                $("like-count"+post_id).text(res)
+		            },
+		            error: function(response) {
+		                console.log('error', response)
+		            }
+		        })
+		    })
+
+		});
+	</script>
+
 		{% endblock %}
+		
