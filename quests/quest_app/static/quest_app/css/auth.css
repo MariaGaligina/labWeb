@@ -81,7 +81,7 @@ h1 {
 	border-radius: 5px;
 }
 
-#id-btn {
+.btn {
 	box-sizing: border-box;
 	width: 60%;
 	height: 50px;

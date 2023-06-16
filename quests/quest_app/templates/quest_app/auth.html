@@ -25,14 +25,15 @@
 							{{form.password1}}
 							<div>Подтвердите пароль</div>
 							{{form.password2}}
-							<input class="btn" id="id-btn" type="submit" name="Create User" />
+							<div id="success" class="alert-success" role="alert"></div>
+							<input class="btn" type="submit" name="Create User" />
 							{% comment %} <button class="log-in" type="submit">Sign up</button> {% endcomment %}
 						</form>
 					</div>
 				</div>
 			</div>
 		</div>
-		<script src="{% static 'quest_app/js/lib/axios.min.js' %}"></script>
-		<script src="{% static 'quest_app/js/auth.js' %}"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+		<!--<script src="{% static 'quest_app/js/auth.js' %}"></script>!-->
 	</body>
 </html>
