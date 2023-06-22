@@ -1,0 +1,12 @@
+version: '3.11'
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./quests:/quests
+    ports:
+      - '8000:8000'
+    image: application:django
+    container_name: app_container
+    command: sh -c "python manage.py runserver 0.0.0.0:8000"
